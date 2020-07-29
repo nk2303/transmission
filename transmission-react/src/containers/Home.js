@@ -18,7 +18,7 @@ const Home = () => {
             let k = characters[Math.floor(Math.random()*characters.length)]
             url_key += k;
         }
-        api.createPage(url_key, "")
+        api.createPage(url_key, "");
         return url_key;
     }
 

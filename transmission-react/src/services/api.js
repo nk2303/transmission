@@ -18,11 +18,11 @@ const createPage = (key, content) => {
     }).then(resp => resp.json());
 };
 
-// const getPage = () => {
-//   return fetch(`${BACKEND_DOMAIN}/current_user`, {
-//     headers: headers()
-//   }).then(resp => resp.json());
-// };
+const getPage = () => {
+  return fetch(`${BACKEND_DOMAIN}/pages`, {
+    headers: headers()
+  }).then(resp => resp.json());
+};
 
 const updatePage = (key, content) => {
   return fetch(`${BACKEND_DOMAIN}/k/${key}`, {
