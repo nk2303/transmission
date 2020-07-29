@@ -1,5 +1,6 @@
 class Api::V1::PagesController < ApplicationController
     def index
+        # Can return array of url_keys only
         @pages = Page.all
         render json: @pages, status: :ok
     end

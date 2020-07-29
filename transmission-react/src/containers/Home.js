@@ -19,6 +19,7 @@ const Home = () => {
             url_key += k;
         }
         api.createPage(url_key, "");
+        //TO DO: check if url is unique, if not generate new url_key
         return url_key;
     }
 

@@ -9,8 +9,9 @@ const headers = () => {
   };
 };
 
-const createPage = (key, content) => {
-    const page = { page: { key, content } }
+const createPage = (url_key, content) => {
+    const page = { page: { url_key, content } }
+    console.log(page);
     return fetch(`${BACKEND_DOMAIN}/pages`, {
         method: "POST",
         headers: headers(),
@@ -24,11 +25,12 @@ const getPage = () => {
   }).then(resp => resp.json());
 };
 
-const updatePage = (key, content) => {
-  return fetch(`${BACKEND_DOMAIN}/k/${key}`, {
+const updatePage = (url_key, content) => {
+  const page = { page: { content } }
+  return fetch(`${BACKEND_DOMAIN}/k/${url_key}`, {
     method: "PUT",
     headers: headers(),
-    body: JSON.stringify(content)
+    body: JSON.stringify(page)
   }).then(resp => resp.json());
 };
 
