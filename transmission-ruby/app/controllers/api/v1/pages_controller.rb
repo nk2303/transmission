@@ -19,6 +19,6 @@ class Api::V1::PagesController < ApplicationController
     end
     private
     def page_params
-        params.require(:page).permit(:key, :content)
+        params.require(:page).permit(:url_key, :content)
     end
 end
