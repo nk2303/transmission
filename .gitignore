@@ -1,0 +1,32 @@
+
+# dependencies
+transmission-react/node_modules
+transmission-react/.pnp
+transmission-react/.pnp.js
+# testing
+transmission-react/coverage
+# production
+transmission-react//build
+# misc
+transmission-react/.DS_Store
+transmission-react/.env.local
+transmission-react/.env.development.local
+transmission-react/.env.test.local
+transmission-react/.env.production.local
+transmission-react/npm-debug.log*
+transmission-react/yarn-debug.log*
+transmission-react/yarn-error.log*
+
+# Ignore bundler config.
+transmission-ruby/.bundle
+# Ignore all logfiles and tempfiles.
+transmission-ruby/log/*
+transmission-ruby/tmp/*
+transmission-ruby!/log/.keep
+transmission-ruby!/tmp/.keep
+# Ignore uploaded files in development.
+transmission-ruby/storage/*
+transmission-ruby!/storage/.keep
+transmission-ruby.byebug_history
+# Ignore master key for decrypting credentials and more.
+transmission-ruby/config/master.key
