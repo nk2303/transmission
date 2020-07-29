@@ -1,4 +1,4 @@
-class PagesController < ApplicationController
+class Api::V1::PagesController < ApplicationController
     def index
         @pages = Page.all
         render json: @pages, status: :ok
