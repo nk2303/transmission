@@ -1,4 +1,4 @@
-const BACKEND_DOMAIN = process.env.TRANSMISSION_APP_BACKEND_DOMAIN;
+const BACKEND_DOMAIN = process.env.REACT_APP_TRANSMISSION_BACKEND_DOMAIN;
 // const key = () => localStorage.getItem("key");
 
 const headers = () => {
@@ -11,12 +11,12 @@ const headers = () => {
 
 const createPage = (url_key, content) => {
     const page = { page: { url_key, content } }
-    console.log(page);
     return fetch(`${BACKEND_DOMAIN}/pages`, {
         method: "POST",
         headers: headers(),
         body: JSON.stringify(page)
     }).then(resp => resp.json());
+    //return a promise
 };
 
 const getPage = () => {

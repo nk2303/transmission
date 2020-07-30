@@ -1,9 +1,13 @@
-import React from 'react';
-import Button from "react-bootstrap/Button";
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { api } from '../services/api';
 
 const Home = () => {
+    const [key, setKey] = useState('');
+
+    useEffect(() => {
+        generateKey();
+      }, []);
 
     const generateKey = () => {
         const characters = [ 
@@ -18,13 +22,18 @@ const Home = () => {
             let k = characters[Math.floor(Math.random()*characters.length)]
             url_key += k;
         }
-        api.createPage(url_key, "");
+
+        console.log(key)
+        api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
         //TO DO: check if url is unique, if not generate new url_key
-        return url_key;
+        return key
     }
 
     return (
-        <Link to={`/${generateKey()}`} className="btn btn-dark">Create a Page</Link>
+        (key === "") ?
+        null
+        :
+        <Link to={key} className="btn btn-dark"> Create a Page</Link>
     )
 }
 
