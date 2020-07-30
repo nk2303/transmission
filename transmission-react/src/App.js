@@ -11,7 +11,7 @@ const App = () => {
       <Router>
         <NavBar/>
         <Route exact path='/' render={(routeProps) => <Home {...routeProps} />} />
-        <Route exact path='/:key' render={(routeProps) => <SharedBrowser {...routeProps} />} />
+        <Route exact path='/:url_key' render={(routeProps) => <SharedBrowser {...routeProps} />} />
       </Router>
   );
 }

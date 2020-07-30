@@ -6,10 +6,10 @@ import { useParams } from 'react-router-dom';
 const SharedBrowser = () => {
 
     const [text, setText] = useState('');
-    const { urlKey } = useParams();
+    const { url_key } = useParams();
 
     const handleTextChange = e => {
-        api.updatePage(urlKey, e.target.value);
+        api.updatePage(url_key, e.target.value);
         setText(e.target.value);
       };
 

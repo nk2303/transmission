@@ -24,6 +24,7 @@ const getPage = () => {
 
 const updatePage = (url_key, content) => {
   const page = { page: { content } }
+  console.log(url_key)
   return fetch(`${BACKEND_DOMAIN}/k/${url_key}`, {
     method: "PUT",
     headers: headers(),
