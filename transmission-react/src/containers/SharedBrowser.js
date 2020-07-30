@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Form from 'react-bootstrap/Form'
 import { api } from '../services/api';
 import { useParams } from 'react-router-dom';
@@ -7,6 +7,10 @@ const SharedBrowser = () => {
 
     const [text, setText] = useState('');
     const { url_key } = useParams();
+
+    useEffect(() => {
+        api.getSharedPage(url_key).then( resp => setText(resp.content));
+      }, []); 
 
     const handleTextChange = e => {
         api.updatePage(url_key, e.target.value);

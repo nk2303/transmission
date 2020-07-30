@@ -22,8 +22,6 @@ const Home = () => {
             let k = characters[Math.floor(Math.random()*characters.length)]
             url_key += k;
         }
-
-        console.log(key)
         api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
         //TO DO: check if url is unique, if not generate new url_key
         return key

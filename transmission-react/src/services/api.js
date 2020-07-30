@@ -16,7 +16,13 @@ const createPage = (url_key, content) => {
     }).then(resp => resp.json());
 };
 
-const getPage = () => {
+const getSharedPage = (url_key) => {
+  return fetch(`${BACKEND_DOMAIN}/k/${url_key}`, {
+    headers: headers()
+  }).then(resp => resp.json());
+};
+
+const getUrlKeyList = () => {
   return fetch(`${BACKEND_DOMAIN}/pages`, {
     headers: headers()
   }).then(resp => resp.json());
@@ -24,7 +30,6 @@ const getPage = () => {
 
 const updatePage = (url_key, content) => {
   const page = { page: { content } }
-  console.log(url_key)
   return fetch(`${BACKEND_DOMAIN}/k/${url_key}`, {
     method: "PUT",
     headers: headers(),
@@ -42,7 +47,7 @@ const deletePage = page_id => {
 
 export const api = {
     createPage,
-    getPage,
+    getSharedPage,
     updatePage,
     deletePage,
 };
