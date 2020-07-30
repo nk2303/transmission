@@ -1,11 +1,9 @@
 const BACKEND_DOMAIN = process.env.REACT_APP_TRANSMISSION_BACKEND_DOMAIN;
-// const key = () => localStorage.getItem("key");
 
 const headers = () => {
   return {
     "Content-Type": "application/json",
-    Accept: "application/json",
-    // Authorization: token()
+    Accept: "application/json"
   };
 };
 
@@ -16,7 +14,6 @@ const createPage = (url_key, content) => {
         headers: headers(),
         body: JSON.stringify(page)
     }).then(resp => resp.json());
-    //return a promise
 };
 
 const getPage = () => {
@@ -44,7 +41,7 @@ const deletePage = page_id => {
 
 export const api = {
     createPage,
-    // getPage,
+    getPage,
     updatePage,
     deletePage,
 };
