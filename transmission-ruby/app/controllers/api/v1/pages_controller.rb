@@ -16,7 +16,7 @@ class Api::V1::PagesController < ApplicationController
     end
 
     def update
-        page = Page.find(params[:url_key])
+        page = Page.all.find{|p| p.url_key == params[:url_key]}
         page.update(page_params)
         if page.valid? 
             render json: { page: PageSerializer.new(page) }
