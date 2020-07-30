@@ -10,6 +10,11 @@ class Api::V1::PagesController < ApplicationController
         render json: page
     end
 
+    def sharePage
+        page = Page.all.find{|p| p.url_key == params[:url_key]}
+        render json: page
+    end
+
     def create
         page = Page.create(page_params)
         render json: {page: PageSerializer.new(page)}
