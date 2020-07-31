@@ -9,6 +9,7 @@ import NavBar from './containers/NavBar';
 
 const App = (props) => {
   const { cableApp } = props;
+  console.log(props.cableApp);
   return (
       <Router>
         <NavBar/>

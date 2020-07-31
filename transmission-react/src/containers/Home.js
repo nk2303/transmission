@@ -32,7 +32,9 @@ const Home = () => {
         (key === "") ?
         null
         :
-        <Link to={key} className="btn btn-dark"> Create a Page </Link>
+        <div className="homepage">
+            <Link to={key} className="btn btn-dark"> Create a Page </Link>
+        </div>
     )
 }
 
