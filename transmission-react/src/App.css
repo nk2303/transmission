@@ -23,6 +23,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App-link {
@@ -38,23 +39,25 @@
   }
 }
 
-.form-group {
+.shared-text {
   margin: 20px 50px 0px 50px;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .navbar { 
   background-color: black; 
   color: white; 
   font-size: 25px;
-  /* font-family: 'Courier New', Courier, monospace; */
+  font-family: 'Courier New', Courier, monospace;
   padding-left: 50px;
  }
 
 .homepage {
   margin: 30px 200px 0px 200px;
   text-align: center;
-  /* font-family: 'Courier New', Courier, monospace; */
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .url-form { width: 300px;}
+.url_form .form-control { text-align: center;}
 .go-url { width: 100px; margin-top: 10px}

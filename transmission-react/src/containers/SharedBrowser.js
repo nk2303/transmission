@@ -22,8 +22,8 @@ const SharedBrowser = (props) => {
       };
 
     return (
-        <Form.Group controlId="formControlTextArea">
-            <Form.Label>Shared text area</Form.Label>
+        <Form className="shared-text">
+            <Form.Label><h4>Key: {url_key}</h4></Form.Label>
             <Form.Control 
                 as="textarea" 
                 rows="30" 
@@ -36,7 +36,7 @@ const SharedBrowser = (props) => {
                 getPageData={api.getSharedPage}
                 updatePage={api.updatePage}
             />
-        </Form.Group>
+        </Form>
     )
 }
 
