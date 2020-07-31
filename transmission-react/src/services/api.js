@@ -24,7 +24,6 @@ const getSharedPage = (url_key) => {
 };
 
 const getUrlKeyList = () => {
-  
   return fetch(`${BACKEND_DOMAIN}/pages`, {
     headers: headers()
   }).then(resp => resp.json());
@@ -52,6 +51,7 @@ const deletePage = page_id => {
 export const api = {
     createPage,
     getSharedPage,
+    getUrlKeyList,
     updatePage,
     deletePage,
 };

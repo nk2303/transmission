@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 .App-logo {
@@ -45,14 +46,14 @@
   background-color: black; 
   color: white; 
   font-size: 25px;
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
   padding-left: 50px;
  }
 
 .homepage {
   margin: 30px 200px 0px 200px;
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  /* font-family: 'Courier New', Courier, monospace; */
 }
 
 .url-form { width: 300px;}

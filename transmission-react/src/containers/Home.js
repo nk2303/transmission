@@ -5,10 +5,12 @@ import UrlKeyForm from '../components/UrlKeyForm'
 
 const Home = () => {
     const [key, setKey] = useState('');
+    const [keyList, setKeyList] = useState([]);
 
     useEffect(() => {
         generateKey();
-      }, []);
+        getUrls();
+    }, []);
 
     const generateKey = () => {
         const characters = [ 
@@ -29,6 +31,10 @@ const Home = () => {
         return key
     }
 
+    const getUrls = () => {
+        api.getUrlKeyList().then( resp => setKeyList(resp))
+    }
+
     return (
         (key === "") ?
         null
@@ -44,7 +50,7 @@ const Home = () => {
             <br/><br/>
             Or enter your URL key to go to an existing page
             <br/><br/>
-            <UrlKeyForm/>
+            <UrlKeyForm urlKeyList={keyList}/>
         </div>
     )
 }
