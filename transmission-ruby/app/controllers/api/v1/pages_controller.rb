@@ -10,7 +10,8 @@ class Api::V1::PagesController < ApplicationController
         render json: page
     end
 
-    def sharePage
+    # When a browser ask for joinPage method, it means the user is joining the Page and can see all texts. 
+    def joinPage
         page = Page.all.find{|p| p.url_key == params[:url_key]}
         render json: page
     end
@@ -24,7 +25,10 @@ class Api::V1::PagesController < ApplicationController
         page = Page.all.find{|p| p.url_key == params[:url_key]}
         page.update(page_params)
         if page.valid? 
-            render json: { page: PageSerializer.new(page) }
+            ActionCable.server.broadcast 'page',
+                page: page.content
+                render json: { page: PageSerializer.new(page) }
+            head :ok
         else
             render json: { error: 'failed to update page' }, status: :not_acceptable
         end
