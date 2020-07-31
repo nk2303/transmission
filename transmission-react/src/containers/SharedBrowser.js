@@ -3,17 +3,18 @@ import Form from 'react-bootstrap/Form'
 import { api } from '../services/api';
 import { useParams } from 'react-router-dom';
 
-const SharedBrowser = () => {
+const SharedBrowser = (props) => {
 
     const [text, setText] = useState('');
     const { url_key } = useParams();
+    const { cableApp } = props;
 
     useEffect(() => {
         api.getSharedPage(url_key).then( resp => setText(resp.content));
       }, []); 
 
     const handleTextChange = e => {
-        api.updatePage(url_key, e.target.value);
+        api.updatePage(url_key, e.target.value).then( resp => setText(resp.content)).catch( err => console.log(err));
         setText(e.target.value);
       };
 

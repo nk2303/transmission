@@ -6,12 +6,14 @@ import Home from './containers/Home';
 import SharedBrowser from './containers/SharedBrowser';
 import NavBar from './containers/NavBar';
 
-const App = () => {
+
+const App = (props) => {
+  const { cableApp } = props;
   return (
       <Router>
         <NavBar/>
         <Route exact path='/' render={(routeProps) => <Home {...routeProps} />} />
-        <Route exact path='/:url_key' render={(routeProps) => <SharedBrowser {...routeProps} />} />
+        <Route exact path='/:url_key' render={(routeProps) => <SharedBrowser {...routeProps} cableApp={props.cableApp} />} />
       </Router>
   );
 }

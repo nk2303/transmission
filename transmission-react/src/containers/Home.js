@@ -24,6 +24,7 @@ const Home = () => {
         }
         api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
         //TO DO: check if url is unique, if not generate new url_key
+        //OR: comes up with new way of generating unrepeat url_key
         return key
     }
 
