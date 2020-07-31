@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { api } from '../services/api';
+import PageCreate from '../components/PageCreate';
+import UrlKeyForm from '../components/UrlKeyForm'
 
 const Home = () => {
     const [key, setKey] = useState('');
@@ -33,7 +34,17 @@ const Home = () => {
         null
         :
         <div className="homepage">
-            <Link to={key} className="btn btn-dark"> Create a Page </Link>
+            <h1>Share text in real-time</h1>
+            <br/><br/>
+            <p>An online tool for people to quickly share texts between browsers with the same URL</p>
+            <p>Click below button to start</p>
+            <PageCreate url_key={key}/>
+            <br/><br/>
+            <hr/>
+            <br/><br/>
+            Or enter your URL key to go to an existing page
+            <br/><br/>
+            <UrlKeyForm/>
         </div>
     )
 }
