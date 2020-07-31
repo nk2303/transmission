@@ -36,15 +36,13 @@ const Home = () => {
     }
 
     return (
-        (key === "") ?
-        null
-        :
+        
         <div className="homepage">
             <h1>Share text in real-time</h1>
             <br/><br/>
             <p>An online tool for people to quickly share texts between browsers with the same URL</p>
             <p>Click below button to start</p>
-            <PageCreate url_key={key}/>
+            {(key === "") ? null : <PageCreate url_key={key}/>}
             <br/><br/>
             <hr/>
             <br/><br/>
