@@ -9,19 +9,44 @@ const UrlKeyForm = (props) => {
 
     const handleKeyChange = e => {
         setKey(e.target.value);
-        (props.urlKeyList.indexOf(e.target.value) !== -1) ? setValidKey(true) : validKey(false)
+        (props.urlKeyList.indexOf(e.target.value) !== -1) ? setValidKey(true) : setValidKey(false)
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        e.stopPropagation();
+        setKey(e.target.value);
+        (props.urlKeyList.indexOf(e.target.value) !== -1) ? setValidKey(true) : setValidKey(false)
+    }
+
+    const validateKey = () => {
+        if (key === '') {
+            return ''
+        } else if (validKey) {
+            return 'is-valid'
+        } else if (!validKey) {
+            return 'is-invalid'
+        }
     }
 
     return (
-        <Form className="url-form">
+        <Form className="url-form" onSubmit={handleSubmit}>
             <Form.Control 
                 type="text" 
                 placeholder="Type your 4-character key..." 
+                className={validateKey()}
                 onChange={handleKeyChange}
                 value={key}
                 />
             {validKey ?
-            <Link to={''} className="btn btn-dark go-url"> Go </Link>
+            null
+            :
+            <Form.Control.Feedback type="invalid">
+              Please enter correct Url Key
+            </Form.Control.Feedback>
+            }
+            {validKey ?
+            <Link to={key} className="btn btn-success go-url"> Go </Link>
             :
             null
             }
