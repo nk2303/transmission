@@ -37,7 +37,7 @@ const Home = (props) => {
             <h1>Share text in real-time</h1>
             <br/><br/>
             <p>An online tool for people to quickly share texts between browsers with the same URL</p>
-            <p>Click below button to start</p>
+            <p>Click on below button to start</p>
             {(key === "") ? 
             null 
             : 
