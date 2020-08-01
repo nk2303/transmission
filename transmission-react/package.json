@@ -15,11 +15,11 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "serve -s build",
+    "start:local": "react-scripts start",
+    "postinstall": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "publishToHeroku": "cd ../ && git subtree push --prefix transmission-react heroku master || true"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
