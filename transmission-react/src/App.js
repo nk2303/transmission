@@ -24,7 +24,7 @@ const App = (props) => {
         <NavBar/>
         <Route exact path='/' render={(routeProps) => <Home {...routeProps} urlKeyList={keyList} />} />
         <Route exact path='/:url_key' render={(routeProps) => 
-          <SharedBrowser {...routeProps} cableApp={props.cableApp} />} />
+          <SharedBrowser {...routeProps} urlKeyList={keyList} cableApp={props.cableApp} />} />
       </Router>
   );
 }

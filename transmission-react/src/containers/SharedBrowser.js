@@ -3,15 +3,23 @@ import Form from 'react-bootstrap/Form'
 import { api } from '../services/api';
 import { useParams } from 'react-router-dom';
 import PageWebSocket from '../components/PageWebSocket';
+import { useHistory } from "react-router-dom";
 
 const SharedBrowser = (props) => {
 
     const [text, setText] = useState('');
     const { url_key } = useParams();
-    const { cableApp } = props;
+    const { cableApp, urlKeyList } = props;
+    const history = useHistory();
 
     useEffect(() => {
-        api.getSharedPage(url_key).then( resp => setText(resp.content));
+        console.log(props.urlKeyList)
+        if (urlKeyList.indexOf(url_key) !== -1) {
+            api.getSharedPage(url_key).then( resp => setText(resp.content));
+        } else {
+            history.push('/');
+        }
+        
       }, []); 
 
     const handleTextChange = e => {
@@ -22,6 +30,7 @@ const SharedBrowser = (props) => {
       };
 
     return (
+
         <Form className="shared-text">
             <Form.Label><h4>Key: {url_key}</h4></Form.Label>
             <Form.Control 
