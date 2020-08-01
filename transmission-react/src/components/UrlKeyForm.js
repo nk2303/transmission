@@ -37,9 +37,8 @@ const UrlKeyForm = (props) => {
             <Col className="input-key-css" style={{'width': '300px'}}>
                 <Form className="url-form" onSubmit={handleSubmit}>
                     <Form.Control 
-                        block
                         type="text" 
-                        placeholder="Type your 4-character key..." 
+                        placeholder="Enter your key..." 
                         className={validateKey()}
                         onChange={handleKeyChange}
                         value={key}

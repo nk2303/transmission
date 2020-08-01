@@ -8,19 +8,26 @@ import { useHistory } from "react-router-dom";
 const SharedBrowser = (props) => {
 
     const [text, setText] = useState('');
-    const { url_key } = useParams();
     const { cableApp, urlKeyList } = props;
+    const [keyList, setKeyList] = useState(props.urlKeyList);
+    const { url_key } = useParams();
     const history = useHistory();
 
     useEffect(() => {
-        console.log(props.urlKeyList)
-        if (urlKeyList.indexOf(url_key) !== -1) {
+        console.log(urlKeyList)
+        if (urlKeyList.length == 0){
+            getUrls();
+        } else if (urlKeyList.indexOf(url_key) !== -1) {
             api.getSharedPage(url_key).then( resp => setText(resp.content));
         } else {
             history.push('/');
         }
         
       }, []); 
+
+      const getUrls = () => {
+        api.getUrlKeyList().then( resp => setKeyList(resp))
+      }
 
     const handleTextChange = e => {
         api.updatePage(url_key, e.target.value)
@@ -35,7 +42,7 @@ const SharedBrowser = (props) => {
             <Form.Label><h4>Key: {url_key}</h4></Form.Label>
             <Form.Control 
                 as="textarea" 
-                rows="30" 
+                rows="25" 
                 placeholder="Write or paste text here. Anyone you share with will see your text as it is typed..."
                 onChange={handleTextChange}
                 value={text}

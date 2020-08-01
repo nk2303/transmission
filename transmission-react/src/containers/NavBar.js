@@ -5,7 +5,7 @@ const NavBar = () => {
 
     return (
         <nav className="navbar">
-            Transmission
+            Transmissi0n
         </nav>
     )
 }

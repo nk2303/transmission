@@ -58,8 +58,8 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-/* .url-form { width: 300px;} */
-.url_form .form-control { text-align: center !important;}
+.input-key-css { min-width: 250px;}
+
 .go-url { width: 100px; margin-top: 10px}
 
 hr {width: 80%}

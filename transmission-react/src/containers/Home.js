@@ -5,6 +5,7 @@ import UrlKeyForm from '../components/UrlKeyForm'
 
 const Home = (props) => {
     const [key, setKey] = useState('');
+    const {urlKeyList} = props;
 
     useEffect(() => {
         generateKey();
@@ -27,7 +28,7 @@ const Home = (props) => {
             }
         }
         api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
-        return key
+        console.log("DONE", key)
     }
     
 
@@ -39,14 +40,14 @@ const Home = (props) => {
             <p>An online tool for people to quickly share texts between browsers with the same URL</p>
             <p>Click on below button to start</p>
             {(key === "") ? 
-            null 
+            console.log(key, "Key here")
             : 
             <PageCreate url_key={key}/>
             }
             <br/><br/>
             <hr/>
             <br/><br/>
-            Or enter your URL key to go to an existing page
+            Or enter your 4-character URL key to go to an existing page
             <br/><br/>
             <UrlKeyForm urlKeyList={props.urlKeyList}/>
         </div>
