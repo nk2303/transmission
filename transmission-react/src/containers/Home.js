@@ -20,7 +20,7 @@ const Home = (props) => {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
             "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
         ]
-        while (props.urlKeyList.indexOf(url_key) === -1 && url_key === '') {
+        while (props.urlKeyList.indexOf(url_key) !== -1 || url_key === '') {
             url_key = '';
             for (let i = 0; i <= 3; i++) {
                 let k = characters[Math.floor(Math.random()*characters.length)]
@@ -28,7 +28,6 @@ const Home = (props) => {
             }
         }
         api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
-        console.log("DONE", key)
     }
     
 
@@ -40,7 +39,7 @@ const Home = (props) => {
             <p>An online tool for people to quickly share texts between browsers with the same URL</p>
             <p>Click on below button to start</p>
             {(key === "") ? 
-            console.log(key, "Key here")
+            null
             : 
             <PageCreate url_key={key}/>
             }
