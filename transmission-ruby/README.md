@@ -1,6 +1,8 @@
 # README
 
 Heroku deploy: 
+From root directory
+```heroku git:remote -a transmission-backend
 ```git subtree push --prefix transmission-ruby heroku master 
 
 This README would normally document whatever steps are necessary to get the
