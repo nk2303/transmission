@@ -4,6 +4,8 @@ Heroku deploy:
 From root directory
 ```heroku git:remote -a transmission-backend
 ```git subtree push --prefix transmission-ruby heroku master 
+Heroku debug CLI
+```heroku run rails console  
 
 This README would normally document whatever steps are necessary to get the
 application up and running.

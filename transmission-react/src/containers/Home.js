@@ -3,16 +3,15 @@ import { api } from '../services/api';
 import PageCreate from '../components/PageCreate';
 import UrlKeyForm from '../components/UrlKeyForm'
 
-const Home = () => {
+const Home = (props) => {
     const [key, setKey] = useState('');
-    const [keyList, setKeyList] = useState([]);
 
     useEffect(() => {
         generateKey();
-        getUrls();
     }, []);
 
     const generateKey = () => {
+        let url_key = '';
         const characters = [ 
             "A",  "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", 
             "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",
@@ -20,20 +19,20 @@ const Home = () => {
             "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", 
             "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"
         ]
-        let url_key = '';
-        for (let i = 0; i <= 3; i++) {
-            let k = characters[Math.floor(Math.random()*characters.length)]
-            url_key += k;
+        while (props.urlKeyList.indexOf(url_key) === -1 && url_key === '') {
+            url_key = '';
+            for (let i = 0; i <= 3; i++) {
+                let k = characters[Math.floor(Math.random()*characters.length)]
+                url_key += k;
+            }
         }
         api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
-        //TO DO: check if url is unique, if not generate new url_key
-        //OR: comes up with new way of generating unrepeat url_key
         return key
     }
 
-    const getUrls = () => {
-        api.getUrlKeyList().then( resp => setKeyList(resp))
-    }
+    
+
+    
 
     return (
         
@@ -52,7 +51,7 @@ const Home = () => {
             <br/><br/>
             Or enter your URL key to go to an existing page
             <br/><br/>
-            <UrlKeyForm urlKeyList={keyList}/>
+            <UrlKeyForm urlKeyList={props.urlKeyList}/>
         </div>
     )
 }

@@ -31,11 +31,11 @@ const SharedBrowser = (props) => {
                 onChange={handleTextChange}
                 value={text}
             />
-            <PageWebSocket
+            {/* <PageWebSocket
                 cableApp={props.cableApp}
                 getPageData={api.getSharedPage}
                 updatePage={api.updatePage}
-            />
+            /> */}
         </Form>
     )
 }
