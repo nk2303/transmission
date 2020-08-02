@@ -28,7 +28,9 @@ const Home = (props) => {
                 url_key += k;
             }
         }
-        api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
+        if (url_key !== "invalid"){
+            api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
+        }
     }
     
 

@@ -15,7 +15,7 @@ const InvalidPage = (props) => {
             <br/><hr/><br/>
             <h6> Or go back to homepage: </h6>
             <br/>
-            <Link to='/' className="btn btn-dark"> Create a Page </Link>
+            <Link to='/' className="btn btn-dark"> Homepage </Link>
         </div>
     )
 }
