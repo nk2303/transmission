@@ -20,7 +20,6 @@ const App = (props) => {
   const getUrls = () => {
     api.getUrlKeyList().then( resp => setKeyList(resp))
   }
-  console.log(keyList)
 
   return (
     ( keyList.length === 0 ?
@@ -29,7 +28,7 @@ const App = (props) => {
       <Router>
         <NavBar/>
         <Route exact path='/' render={(routeProps) => <Home {...routeProps} urlKeyList={keyList} />} />
-        <Route exact path='/invalid/notok' render={(routeProps) => <InvalidPage {...routeProps} />} />
+        {/* <Route exact path='/invalid' render={(routeProps) => <InvalidPage {...routeProps} urlKeyList={keyList} />} /> */}
         <Route exact path='/:url_key' render={(routeProps) => 
           <SharedBrowser {...routeProps} urlKeyList={keyList} cableApp={props.cableApp} />} />
       </Router> )

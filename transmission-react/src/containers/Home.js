@@ -30,8 +30,6 @@ const Home = (props) => {
         }
         api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
     }
-
-    console.log(key)
     
 
     return (

@@ -4,6 +4,7 @@ import { api } from '../services/api';
 import { useParams } from 'react-router-dom';
 import PageWebSocket from '../components/PageWebSocket';
 import { useHistory } from "react-router-dom";
+import InvalidPage from './InvalidPage'
 
 const SharedBrowser = (props) => {
 
@@ -23,7 +24,7 @@ const SharedBrowser = (props) => {
             api.getSharedPage(url_key).then( resp => setText(resp.content));
         } else {
             console.log("NOOO")
-            history.push('/invalid/notok');
+            history.push('/invalid');
         }
         
       }, []); 
@@ -40,22 +41,25 @@ const SharedBrowser = (props) => {
       };
 
     return (
-
-        <Form className="shared-text">
-            <Form.Label><h4>Key: {url_key}</h4></Form.Label>
-            <Form.Control 
-                as="textarea" 
-                rows="25" 
-                placeholder="Write or paste text here. Anyone you share with will see your text as it is typed..."
-                onChange={handleTextChange}
-                value={text}
-            />
-            {/* <PageWebSocket
-                cableApp={props.cableApp}
-                getPageData={api.getSharedPage}
-                updatePage={api.updatePage}
-            /> */}
-        </Form>
+        ((url_key === "invalid") ?
+        <InvalidPage urlKeyList={keyList}/>
+        :
+            <Form className="shared-text">
+                <Form.Label><h4>Key: {url_key}</h4></Form.Label>
+                <Form.Control 
+                    as="textarea" 
+                    rows="25" 
+                    placeholder="Write or paste text here. Anyone you share with will see your text as it is typed..."
+                    onChange={handleTextChange}
+                    value={text}
+                />
+                {/* <PageWebSocket
+                    cableApp={props.cableApp}
+                    getPageData={api.getSharedPage}
+                    updatePage={api.updatePage}
+                /> */}
+            </Form>
+        )
     )
 }
 
