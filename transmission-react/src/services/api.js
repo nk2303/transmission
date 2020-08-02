@@ -50,5 +50,5 @@ export const api = {
     getSharedPage,
     getUrlKeyList,
     updatePage,
-    deletePage,
+    deletePage
 };
