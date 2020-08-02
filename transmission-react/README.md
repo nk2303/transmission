@@ -1,10 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 Heroku deploy: 
-```heroku git:remote -a transmission-frontend
-```git subtree push --prefix transmission-react heroku master 
+```heroku git:remote -a transmission-frontend```
 or
-```npm run publishToHeroku
+```npm run publishToHeroku```
 ## Available Scripts
 
 In the project directory, you can run:
