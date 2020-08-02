@@ -17,7 +17,6 @@ const UrlKeyForm = (props) => {
     const handleSubmit = e => {
         e.preventDefault();
         e.stopPropagation();
-        // (props.urlKeyList.indexOf(e.target.value) !== -1) ? setValidKey(true) : setValidKey(false)
     }
 
     const validateKey = () => {
