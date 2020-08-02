@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './containers/Home';
 import SharedBrowser from './containers/SharedBrowser';
 import NavBar from './containers/NavBar';
+import InvalidPage from './containers/InvalidPage';
 
 
 const App = (props) => {
@@ -28,6 +29,7 @@ const App = (props) => {
       <Router>
         <NavBar/>
         <Route exact path='/' render={(routeProps) => <Home {...routeProps} urlKeyList={keyList} />} />
+        <Route exact path='/invalid/notok' render={(routeProps) => <InvalidPage {...routeProps} />} />
         <Route exact path='/:url_key' render={(routeProps) => 
           <SharedBrowser {...routeProps} urlKeyList={keyList} cableApp={props.cableApp} />} />
       </Router> )

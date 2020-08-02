@@ -17,7 +17,6 @@ const createPage = (url_key, content) => {
 };
 
 const getSharedPage = (url_key) => {
-  console.log("GETSHAREDPAGE METHOD RUN")
   return fetch(`${BACKEND_DOMAIN}/k/${url_key}`, {
     headers: headers()
   }).then(resp => resp.json());
@@ -30,9 +29,7 @@ const getUrlKeyList = () => {
 };
 
 const updatePage = (url_key, content) => {
-  console.log("UPDATEDPAGE METHOD RUN")
   const page = { page: { content } }
-  console.log(url_key)
   return fetch(`${BACKEND_DOMAIN}/k/${url_key}`, {
     method: "PUT",
     headers: headers(),

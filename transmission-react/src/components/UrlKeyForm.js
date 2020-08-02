@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
-import Col from 'react-bootstrap/Col'
-import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
 
 const UrlKeyForm = (props) => {
 
@@ -51,7 +51,7 @@ const UrlKeyForm = (props) => {
                     </Form.Control.Feedback>
                     }
                     {validKey ?
-                    <Link to={key} className="btn btn-success go-url"> Go </Link>
+                    <Link to={key} className="btn btn-success go-url"> Go ! </Link>
                     :
                     null
                     }

@@ -15,12 +15,15 @@ const SharedBrowser = (props) => {
 
     useEffect(() => {
         console.log(urlKeyList)
+        console.log(url_key)
         if (urlKeyList.length == 0){
             getUrls();
         } else if (urlKeyList.indexOf(url_key) !== -1) {
+            console.log("WHY")
             api.getSharedPage(url_key).then( resp => setText(resp.content));
         } else {
-            history.push('/');
+            console.log("NOOO")
+            history.push('/invalid/notok');
         }
         
       }, []); 

@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
 import PageCreate from '../components/PageCreate';
-import UrlKeyForm from '../components/UrlKeyForm'
+import UrlKeyForm from '../components/UrlKeyForm';
+
 
 const Home = (props) => {
     const [key, setKey] = useState('');
@@ -29,6 +30,8 @@ const Home = (props) => {
         }
         api.createPage(url_key, "").then( resp => setKey(resp.page.url_key))
     }
+
+    console.log(key)
     
 
     return (
